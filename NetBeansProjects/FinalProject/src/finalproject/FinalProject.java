@@ -21,7 +21,7 @@ public class FinalProject {
             String output = buffer.replace(",", "");
             if (lst.get(x) != buffer) {
                 System.out.println(output);
-                System.out.println("ID number of " + output + ": " + i);
+                System.out.println("ID number for " + output + ": " + i);
             }
         }
     }
@@ -34,7 +34,20 @@ public class FinalProject {
         for (int i = 0; i < Integer.parseInt(lst.get(0)); i++) {
             int x = (i + 1) * 6 - 4;
             if (lst.get(x).contains(input)) {
-                System.out.println("ID number of " + input + " :" + i);
+                System.out.println("ID number for " + input + " :" + i);
+            }
+        }
+    }
+
+    public static void setCity(List<String> lst) {
+        Scanner read = new Scanner(System.in);
+        System.out.println("");
+        System.out.println("Enter an ID (0-10) to remember: ");
+        String input = read.next();
+        int ID = Integer.parseInt(input);
+        for (int i = 0; i < Integer.parseInt(lst.get(0)); i++){
+            if (i == ID){
+                System.out.println("Currently selected city: " + lst.get((i + 1) * 6 - 4));
             }
         }
     }
@@ -49,12 +62,8 @@ public class FinalProject {
             list.add("\n");
         }
         System.out.println(list);
-        for (; ;){
-          System.out.println("Next Action: ");  
-        }
-            
-       
         searchState(list);
         searchCity(list);
+        setCity(list);
     }
 }
