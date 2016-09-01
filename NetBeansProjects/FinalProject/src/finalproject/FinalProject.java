@@ -80,19 +80,30 @@ public class FinalProject {
             // above is not my algorithm
             distances.add(dist);
         }
-        for (int z = 0; z < Integer.parseInt(input1); z ++){
+        List<Integer> index = new ArrayList<>();
+        if (Integer.parseInt(input1) == 1) {
+            System.out.println("Closest City: ");
+        } else {
+            System.out.println("Closest Cities: ");
+        }
+        for (int z = 0; z < Integer.parseInt(input1); z++) {
             Double temp = distances.get(0);
-            for (int a = 0; a < distances.size(); a ++){
-                if (temp > distances.get(a)){
+            for (int a = 0; a < distances.size(); a++) {
+                if (temp > distances.get(a)) {
                     temp = distances.get(a);
                 }
-                if (a == distances.size() - 1){
+                if (a == distances.size() - 1) {
+                    index.add(distances.indexOf(temp));
                     distances.remove(temp);
                 }
             }
-            System.out.println(temp);
+            System.out.print(lst.get(index.get(0) * 6 + 2));
+            System.out.println("");
+            for (int b = 0; b < 6; b++) {
+                lst.remove(index.get(0) * 6 + 2);
+            }
+            index.remove(0);
         }
-
     }
 
     public static void main(String[] args) throws IOException {
